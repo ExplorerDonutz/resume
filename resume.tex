@@ -1,180 +1,125 @@
-%-------------------------
-% Rover Resume - Star Template
-% Link: https://github.com/subidit/rover-resume
-%
-% CUSTOM COMMANDS \aux{} and \rside{} for part formatting
-% eg. \subsection{Company Name \aux{Designation} \rside{Duration}}
-% Double lined titles with \subsection{} and \subsubsection{}
-% \linkicon gives external link icon
-%-------------------------
-
 \documentclass[11pt]{article}
 
-
-\usepackage[sfdefault,semibold,lf]{FiraSans}
+\usepackage{fontspec}
+\setmainfont{Tahoma}
 \usepackage[a4paper,margin=0.6in]{geometry}
-
 \usepackage{xcolor}
 \definecolor{accent}{HTML}{141E61}
-
-\newcommand{\linkicon}{
-  \color{gray}{\footnotesize\raisebox{1pt}{\faIcon{external-link-alt}}}
-}
-
-\setcounter{secnumdepth}{0}
-\pdfgentounicode=1
-
-
-%====== LIST FORMATTING ======
 \usepackage{enumitem}
-\setlist[itemize]{nosep, left=0pt .. 1.5em}
-\setlist[enumerate]{left=0pt..1.5em}
-\setlist[description]{itemsep=0pt}
-
-
-%====== TITLE FORMATTING ======
 \usepackage{xhfill}
 \usepackage{soul}
-\newcommand{\midrule}[1]{
-  \leavevmode
-  \xrfill[.5ex]{1pt}[accent]~\so{#1}~\xrfill[.5ex]{1pt}[accent]
-}
-
 \usepackage{titlesec}
-\titlespacing{\section}{0pt}{*4}{*1}
-\titlespacing{\subsection}{0pt}{*3}{*0}
-\titlespacing{\subsubsection}{0pt}{*0}{*0}
-\titleformat{\section}{\large\bfseries\uppercase}{}{}{\midrule}
-\titleformat*{\subsection}{\large\bfseries\scshape}
-
-
-%====== CUSTOM COMMANDS ======
-\newcommand{\aux}[1]{
-  $|$ \space {\normalfont\itshape #1}%
-}
-
-\newcommand{\rside}[1]{
-  \hfill {\normalfont\color{accent} #1}%
-}
-
-
-%====== FOOTER ======
 \usepackage{lastpage}
 \usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}
-\renewcommand{\headrulewidth}{0pt}
-
-% Replace 'Star Rover' with your name in next line
-%\fancyfoot[C]{\small\color{gray} Michael Quick -- Page \thepage\ of \pageref*{LastPage}}
-
-% \pagestyle{empty} 
-% uncomment previous line to hide page numbering
-
-
-%====== PACKAGES ======
 \usepackage{fontawesome5}
 \usepackage{multicol}
 \usepackage[bookmarks=false,hidelinks]{hyperref}
 
+% Custom commands
+\newcommand{\linkicon}{
+  \color{gray}{\footnotesize\raisebox{1pt}{\faIcon{external-link-alt}}}
+}
+\newcommand{\midrule}[1]{
+  \leavevmode
+  \xrfill[.5ex]{1pt}[accent]~\so{#1}~\xrfill[.5ex]{1pt}[accent]
+}
+\titleformat{\section}{\large\bfseries\uppercase}{}{}{\midrule}
+\titleformat*{\subsection}{\large\bfseries\scshape}
+\titleformat*{\subsubsection}{\bfseries}
 
-%====== FINISH PREAMBLE ======
+\setcounter{secnumdepth}{0}
+\titlespacing{\section}{0pt}{*1}{*1}
+\titlespacing{\subsection}{0pt}{*1}{*0}
+\titlespacing{\subsubsection}{0pt}{*0}{*0}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
 
-%====== DOCUMENT STARTS HERE ======
+\setlist[itemize]{itemsep=0pt, topsep=0pt}
+\setlist[description]{leftmargin=1.5cm, style=sameline, itemsep=0pt, topsep=0pt}
+
+% \fancyfoot[C]{\small\color{gray} Michael Quick -- Page \thepage\ of \pageref*{LastPage}}
+% \pagestyle{empty}
 
 \begin{document}
 
-%====== BANNER ======
-
+%====== HEADER ======
 \begin{center}
-  {
-    \fontsize{36}{12} 
-    \fontseries{heavy}\selectfont
-    \color{accent} 
-    Michael Quick
-  } \\ \medskip
-
-  {\color{gray}{\faHome}} Denfield, ON, N0M1P0
-
-  \href{tel:5193172635}{{\color{gray}{\faPhone}} 519 317 2635} \quad
-  \href{mailto:mwquick04@gmail.com}{{\color{gray}{\faEnvelope}} mwquick04@gmail.com} \quad 
-  \href{https://github.com/ExplorerDonutz}{{\color{gray}{\faGithub}} ExplorerDonutz} \quad
-  \href{https://www.linkedin.com/in/michael-quick-467bb021b/}{{\color{gray}{\faLinkedin}} Michael Quick}
-
-  \href{https://michaelquick.ca/}{{\color{gray}{\faLink}} michaelquick.ca} 
+  {\fontsize{20}{10}\fontseries{heavy}\selectfont \color{accent} \textbf{Michael Quick}}\\[6pt]
+  {\color{gray}\faPhone} 519-317-2635
+  \quad
+  \href{mailto:mwquick04@gmail.com}{{\color{gray}\faEnvelope} mwquick04@gmail.com}
+  \quad
+  \href{https://github.com/ExplorerDonutz}{{\color{gray}\faGithub} ExplorerDonutz}
+  \quad
+  \href{https://michaelquick.ca/}{{\color{gray}\faLink} michaelquick.ca}
 \end{center}
 
-%====== BANNER END ======
-
-
+%====== EDUCATION ======
 \section{Education}
-%==========
-\subsection{Honours Bachelor of Science \aux{University of Western Ontario} \rside{Expected 2022 -- 2027}}
-\begin{itemize}
-  \item \textit{Honours Specialization in Computer Science, Minor in Game Development}
-  \item Related coursework: data structures and algorithms, computer architecture, systems programming, artificial intelligence, operating systems
+\subsection{B.Sc. Honours Specialization in Computer Science  \hfill 2022 -- Present}
+\subsubsection{Western University} 
+\begin{itemize}[left=0pt..1em]
+  \item Relevant Courses: Operating Systems, Computer Architecture, Data Structures and Algorithms, Artificial Intelligence, Computer Graphics
 \end{itemize}
 
-
+%====== EXPERIENCE ======
 \section{Experience}
-%==========
-\subsection{Gruv Media \rside{London, ON}}
-\subsubsection{Developer \rside{Jul 2023 -- Present}}
-\begin{itemize}
-  \item Developed websites and full-stack applications using Python, PHP, Django, Wagtail, WordPress, JavaScript, HTML, CSS, and Git
-  \item Maintained websites and handled server operations, including security and performance reviews
-  \item Handled databases and server technologies including CPanel, Apache, and PostgresSQL
-  \item Coordinated with clients as well as team members to improve workflow and handle issues
-  \item Ensured websites were performing well and acheiving high SEO scores
+
+\subsection{Software Developer \hfill Jul 2023 -- Present}
+\subsubsection{Gruv Media \hfill London, ON}
+\begin{itemize}[left=0pt..1em]
+  \item Build and maintain websites and applications using Python, PHP, Django, Wagtail, and WordPress
+  \item Performed upgrades and maintenance resulting in increased security and performance, improving load times by 50\%
+  \item Collaborate with cross-functional teams and external clients to define requirements and resolve technical issues
 \end{itemize}
 
-\subsection{Hyland Farms Ltd. \rside{Denfield, ON}}
-\subsubsection{Farmhand \rside{April 2019 -- Oct 2024}}
-\begin{itemize}
-  \item Developed, installed, and programmed self-steering solutions for tractors utilizing the open source project AGOpenGPS
-  \item Created efficient and safe wiring harnesses for the auto steer motor, wheel angle sensor, main board, and GPS antenna
-  \item Communicated with active members of the AGOpen and farming community, as well as my employer to ensure the best possible auto steering solution
-  \item Responsible for the wellbeing of animals, including feeding, cleaning their enclosures and equipment, and informing others of their condition
+\subsection{Farmhand \hfill Apr 2019 -- Oct 2024}
+\subsubsection{Hyland Farms Ltd. \hfill Denfield, ON}
+\begin{itemize}[left=0pt..1em]
+  \item Engineered and installed a self-steering solution for tractors using the open-source AGOpenGPS software
+  \item Designed and installed custom wiring harnesses integrating GPS, IMU, wheel angle sensors, and the main AIO board
+  \item Analyzed performance and calibrated steering parameters for optimal stability
 \end{itemize}
 
+%====== PROJECTS ======
+\section{Projects}
 
-\section{Skills and Interests}
-%===============
+\subsection{Tractor Auto-steer \hfill 2024}
+\begin{itemize}[left=0pt..1em]
+  \item Expanded upon commercial auto-steering by integrating additional sensors (wheel angle, IMU) and tuning real-time control loops
+  \item Implemented safety checks and failsafes, ensuring stable and consistent tractor guidance during use
+\end{itemize}
+
+\subsection{DataQuest ML Challenge \hfill 2023/2024}
+\begin{itemize}[left=0pt..1em]
+  \item Collaborated in a team to build Python-based machine learning models using pandas, scikit-learn, and XGBoost
+  \item Investigated trends in hotel cancellations (2023) and built a credit card fraud detection model (2024) achieving an 88.3\% F1 score
+\end{itemize}
+
+\subsection{LibGDX Game \hfill 2022}
+\begin{itemize}[left=0pt..1em]
+  \item{Built a 2-D Java game project by implementing the LibGDX framework and following object oriented programming practices}
+  \item{Utilized various tools such as Tiled map generation, IDEs, and more to improve the efficiency of production}
+  \item{Worked alongside a fellow developer, utilizing leadership and communication skills for effective teamwork}
+\end{itemize}  
+
+
+%====== SKILLS ======
+\section{Technical Skills}
 \begin{description}
-  \item[Programming languages] Java, Python, C/C++,  C\#, R, PHP, HTML, CSS, JavaScript, SQL, Kotlin, TypeScript
-  \item[Frameworks and libraries] WHM, CPanel, WordPress, React, Django, Wagtail, Scikit-learn, AGOpenGPS, PostgresSQL, Android Studio
-  \item[Other skills] Git, Linux, Microsoft Office, Communication, Problem-solving, Hard-working, Visual Studio, Visual Studio Code, Unity, Unreal Engine, Godot
-  \item[Interests] Fitness, basketball, cars, golf, playing the drums, video games \& game development 
+  \item[Programming] C/C++, Python, Java, JavaScript, PHP, HTML/CSS, TypeScript, R
+  \item[Tools] Git, GitHub, cPanel, WHM, Apache, PostgreSQL, MySQL, LaTex, OpenGL
 \end{description}
 
-
+%====== AWARDS ======
 \section{Awards and Certifications}
-%=======================
-\begin{enumerate}[label=\null, left=0pt..0pt, itemsep=0pt]
-  \item Learn to Lead Leadership Certificate, University of Western Ontario \rside{2022}
-  \item Western Game Design Society Game Jam Winner\rside{2023}
-  \item Participant in Western AI's DataQuest 2023 and 2024 \rside{2023/2024}
-  \item Western Game Design Society GameJam 2023 Competition Winner \rside{2023}
-  \item Participant in Crack the Code Cyber Security Capture the Flag \rside{2024}
-\end{enumerate}
-
-
-\section{Projects}
-%=================
-\subsection{DataQuest \aux{\href{https://github.com/raginggoosedev/dataquest-2024}{Link \linkicon}} \rside{2023/2024}}
-\begin{itemize}
-  \item Utilized Python with pandas, scikit-learn, and other packages to create machine learning models
-  \item Collaborated with team members to design a functioning model and presentation
-  \item Successfully designed and implemented a working model with high accuracy in both the 2023 and 2024 events
-  \item In 2023 our team of four investigated trends in hotel cancellations and in 2024 investigated the potential features that could be signs of credit card fraud
+\begin{itemize}[left=0pt..1em]
+  \item Learn to Lead Leadership Certificate, Western University (2022)
+  \item Western Game Design Society Game Jam Winner (2023)
+  \item Participant in Western AI's DataQuest (2023, 2024)
+  \item Participant in Crack the Code Cyber Security CTF (2024)
+  \item Quadro Communications Co-operative Inc. Scholarship Recipient (2023)
 \end{itemize}
-
-\subsection{Tractor Auto-steer \rside{2024}} 
-\begin{itemize}
-  \item Determined necessary hardware such as GPS, main board, IMU, etc.
-  \item Soldered hardware and built wiring harness to connect the auto-steering solution to the tractor
-  \item Adjusted settings and optimized software for the tractor using measurements, understanding of PWM, and test drives
-\end{itemize}
-
 
 \end{document}
